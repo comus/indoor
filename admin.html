@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
+    <style>
+      button {
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id='c1'>111</button>
+    <button id='c2'>222</button>
+    <button id='c3'>333</button>
+    <button>sa</button>
+    <button>sa</button>
+    <button>sa</button>
+    <button>sa</button>
+    <button>sa</button>
+    <button>sa</button>
+    <button>sa</button>
+    <button>sa</button>
+    <button>sa</button>
+    <button>sa</button>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+
+      $( "#c1" ).click(function() {
+        socket.emit('chat message', '1');
+      });
+
+      $( "#c2" ).click(function() {
+        socket.emit('chat message', '2');
+      });
+
+      $( "#c3" ).click(function() {
+        socket.emit('chat message', '3');
+      });
+    </script>
+  </body>
+</html>
