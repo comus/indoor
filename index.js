@@ -16,6 +16,8 @@ app.get('/admin.html', (req, res) => {
 let current = null
 io.on('connection', (socket) => {
   console.log('a user connected');
+  io.emit('chat message', current);
+
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
@@ -28,6 +30,10 @@ io.on('connection', (socket) => {
   socket.on('get current', (msg) => {
     io.emit('chat message', current);
   });
+
+  socket.on('reconnect', () => {
+    io.emit('chat message', current);
+  })
 });
 
 server.listen(3000, () => {
